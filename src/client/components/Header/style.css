@@ -1,0 +1,13 @@
+.search {
+  margin: auto;
+}
+
+.header i {
+  transform: translateX(-1.5em);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}

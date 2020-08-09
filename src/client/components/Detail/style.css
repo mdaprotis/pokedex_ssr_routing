@@ -1,0 +1,159 @@
+/* .slide {
+  position: absolute;
+  top: 500px;
+  width: 500px;
+  height: 500px;
+  background: blue;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+  100% {
+    top: 500;
+  }
+}
+
+@keyframes slide {
+  100% {
+    top: 500;
+  }
+} */
+
+.slide-in-bottom {
+  -webkit-animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.detail_container {
+  display: grid;
+  grid-template-rows: 10% 90%;
+  background-color: rgb(231, 231, 231);
+  border-radius: 19px 19px 0px 0px;
+  -moz-border-radius: 19px 19px 0px 0px;
+  -webkit-border-radius: 19px 19px 0px 0px;
+  border: 0px solid #000000;
+}
+.btn_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0.3em;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 1em;
+  height: 100%;
+}
+.image {
+  width: 80%;
+  height: 80%;
+  float: right;
+  object-fit: contain;
+  padding-right: 20%;
+}
+.data_container {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  height: 90%;
+}
+.data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.poke_data {
+  padding-bottom: 10px;
+}
+
+.poke_data .title {
+  font-weight: 700;
+}
+.poke_types {
+  display: flex;
+  justify-content: left;
+}
+
+.poke_type {
+  padding: 5px 10px;
+  margin: 10px 10px 10px 0;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.poke_name {
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+
+.poke_id {
+  text-align: center;
+  color: #999;
+}
+
+.btn {
+  color: #30a7d7;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.btn button {
+  border-style: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background: #30a7d7;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btn i {
+  padding: 0 5px;
+}
+
+.btn_close {
+  background: #941d1d !important;
+}
+
+.wrapper {
+  position: fixed;
+  width: 70%;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 260px;
+}

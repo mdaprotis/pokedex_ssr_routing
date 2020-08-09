@@ -1,0 +1,48 @@
+{
+  "name": "pokedex-ssr-routing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:static": "webpack && babel-node tools/index.js",
+    "build:server": "babel src --out-dir dist",
+    "build:client": "webpack --mode production",
+    "build": "npm run build:client && npm run build:server",
+    "start:server": "nodemon --exec babel-node src/server/index.js",
+    "start:client": "webpack --mode development --watch",
+    "start": "npm run start:client & npm run start:server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "isomorphic-style-loader": "^5.1.0",
+    "nodemon": "^2.0.3",
+    "postcss-loader": "^3.0.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^2.5.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
+    "css-loader": "^4.2.1",
+    "express": "^4.17.1",
+    "json-server": "^0.16.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "serialize-javascript": "^4.0.0",
+    "style-loader": "^1.2.1"
+  }
+}
