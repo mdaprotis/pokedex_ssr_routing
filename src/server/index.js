@@ -29,6 +29,7 @@ app.get("/:id", async (req, res) => {
   const root = (
     <html>
       <body>
+        <head></head>
         <div id="root">
           <StaticRouter location={req.url} context={{}}>
             <Main pokeList={pokemon_reduced_list} />
@@ -36,7 +37,8 @@ app.get("/:id", async (req, res) => {
         </div>
         <script
           dangerouslySetInnerHTML={{
-            __html: `window._pokeList = ${serialize(pokemon_reduced_list)};
+            __html: `window._current_url = ${serialize(req.url)};  
+                     window._pokeList = ${serialize(pokemon_reduced_list)};
                      window._indexedPokeList = ${serialize(
                        indexed_pokemon_list
                      )};`,

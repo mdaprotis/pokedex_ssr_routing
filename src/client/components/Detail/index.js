@@ -12,20 +12,33 @@ const Detail = () => {
   const { state, setState } = useContext(StateContext);
   const history = useHistory();
 
+  const MAX_POKEMONS = 964;
+
   const handlePrev = () => {
-    let id = parseInt(history.location.pathname.split("/").pop());
-    if (state.prev === null && (id - 1) * 20 >= 0) {
+    let id = parseInt(window._current_url.split("/").pop());
+    if (state.selected_pokemon.id - 1 <= id * 20 && (id - 1) * 20 >= 0) {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("last_page", window._current_url);
+      }
       history.push(`/${id - 1}`);
     }
-    selectPokemon(state.prev, state, setState);
+    if (state.selected_pokemon.id - 1 > 0)
+      selectPokemon(state.prev, state, setState);
   };
 
   const handleNext = () => {
-    let id = parseInt(history.location.pathname.split("/").pop());
-    if (state.next === null && (id + 1) * 20 < 964) {
+    let id = parseInt(window._current_url.split("/").pop());
+    if (
+      state.selected_pokemon.id + 1 > (id + 1) * 20 &&
+      (id + 1) * 20 < MAX_POKEMONS
+    ) {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("last_page", window._current_url);
+      }
       history.push(`/${id + 1}`);
     }
-    selectPokemon(state.next, state, setState);
+    if (state.selected_pokemon.id + 1 <= MAX_POKEMONS)
+      selectPokemon(state.next, state, setState);
   };
   const handleClose = () => {
     setShow(false);

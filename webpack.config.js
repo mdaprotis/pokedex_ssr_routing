@@ -1,5 +1,4 @@
 const nodeExternals = require("webpack-node-externals");
-const path = require("path");
 const webpack = require("webpack");
 const common = {
   devtool: "cheap-module-source-map",
@@ -15,7 +14,13 @@ const common = {
       },
       {
         test: /\.css$/,
-        loaders: ["style-loader", "css-loader"],
+        use: [
+          {
+            loader: "style-loader",
+            options: { injectType: "singletonStyleTag" },
+          },
+          "css-loader",
+        ],
       },
     ],
   },
