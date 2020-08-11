@@ -27,8 +27,12 @@ export const selectPokemon = (id, state, setState) => {
 };
 
 export const searchPokemon = (name) => {
-  const pokemon = window._pokeList.filter(
-    (el) => el && el.name.toUpperCase() === name.trim().toUpperCase()
-  );
-  return pokemon.length ? pokemon[0] : null;
+  for (const key in window._pokeList) {
+    if (window._pokeList.hasOwnProperty(key)) {
+      const pokemon = window._pokeList[key];
+      if (pokemon && pokemon.name.toUpperCase() === name.trim().toUpperCase())
+        return pokemon;
+    }
+  }
+  return null;
 };
