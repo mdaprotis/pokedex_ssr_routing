@@ -7,12 +7,12 @@ const initialState = () => {
   let initial_state = {};
   if (typeof window !== "undefined" && localStorage.getItem("last_page")) {
     if (window._current_url > localStorage.getItem("last_page")) {
-      let pokemon = window._pokeList[0];
+      let pokemon = window._pokeList[Object.keys(window._pokeList)[0]];
       let prev = pokemon.id > 0 ? pokemon.id - 1 : null;
       let next = pokemon.id < MAX_POKEMONS ? pokemon.id + 1 : null;
       initial_state = { selected_pokemon: pokemon, prev, next };
     } else if (window._current_url < localStorage.getItem("last_page")) {
-      let pokemon = window._pokeList[window._pokeList.length - 1];
+      let pokemon = window._pokeList[Object.keys(window._pokeList).length];
       let prev = pokemon.id > 0 ? pokemon.id - 1 : null;
       let next = pokemon.id < MAX_POKEMONS ? pokemon.id + 1 : null;
       initial_state = { selected_pokemon: pokemon, prev, next };

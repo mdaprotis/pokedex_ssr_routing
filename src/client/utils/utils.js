@@ -20,9 +20,9 @@ export const typeColors = {
 };
 
 export const selectPokemon = (id, state, setState) => {
-  const selected = window._indexedPokeList[id];
-  const next = window._indexedPokeList[id + 1] ? id + 1 : null;
-  const prev = window._indexedPokeList[id - 1] ? id - 1 : null;
+  const selected = window._pokeList[id];
+  const next = window._pokeList[id + 1] ? id + 1 : null;
+  const prev = window._pokeList[id - 1] ? id - 1 : null;
   setState({ ...state, selected_pokemon: selected, next, prev });
 };
 

@@ -9,7 +9,8 @@ import "./style.css";
 const Main = ({ pokeList }) => {
   const PokeList = () => (
     <div className="grid-container">
-      {pokeList.map((pokemon) => {
+      {Object.keys(pokeList).map((key) => {
+        const pokemon = pokeList[key];
         return <Card key={`pkm_${pokemon.id}`} pokemon={pokemon} />;
       })}
     </div>

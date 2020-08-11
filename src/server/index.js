@@ -21,10 +21,7 @@ app.get("/:id", async (req, res) => {
       return matchPath(req.url, route);
     }) || {};
 
-  const {
-    pokemon_reduced_list,
-    indexed_pokemon_list,
-  } = await active_route.fetchInitialData(req.path);
+  const pokemon_reduced_list = await active_route.fetchInitialData(req.path);
 
   const root = (
     <html>
@@ -38,12 +35,10 @@ app.get("/:id", async (req, res) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `window._current_url = ${serialize(req.url)};  
-                     window._pokeList = ${serialize(pokemon_reduced_list)};
-                     window._indexedPokeList = ${serialize(
-                       indexed_pokemon_list
-                     )};`,
+                     window._pokeList = ${serialize(pokemon_reduced_list)};`,
           }}
         />
+        <link href="/static/styles.css" rel="stylesheet"></link>
         <script src="/static/main.js"></script>
         <script
           src="https://kit.fontawesome.com/dea6daa23a.js"
