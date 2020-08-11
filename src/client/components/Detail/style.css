@@ -30,7 +30,7 @@
 }
 
 .detail_container {
-  display: grid;
+  padding-top: 10px;
   grid-template-rows: 10% 90%;
   background-color: rgb(231, 231, 231);
   border-radius: 19px 19px 0px 0px;
